@@ -20,6 +20,12 @@ contract Wallet is Ownable{
     //это для токенов ERC20
     mapping (IERC20 => UserInfo) public userInfo;
 
+    event Recieved(address, uint256);
+    receive() external payable {
+        emit Recieved(msg.sender, msg.value);
+        ETHBalance+= msg.value;
+    }
+
 
     function setFeeRate(uint256 newFee) public{
         require(msg.sender == feeReciever, "juk");
