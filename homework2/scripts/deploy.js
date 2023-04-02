@@ -12,16 +12,10 @@ async function main() {
 
   const lockedAmount = hre.ethers.utils.parseEther("0.001");
 
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  const MultiSigWallet = await hre.ethers.getContractFactory("MultiSigWallet");
+  const multiSigWallet = await MultiSigWallet.deploy();
 
   await lock.deployed();
-
-  console.log(
-    `Lock with ${ethers.utils.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
-  );
 }
 
 // We recommend this pattern to be able to use async/await everywhere
