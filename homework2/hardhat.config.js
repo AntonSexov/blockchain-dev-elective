@@ -5,7 +5,7 @@ require('dotenv').config();
 module.exports = {
   solidity: "0.8.18",
   etherscan: {
-    apiKey: "provess.env.ETHERSCAN",
+    apiKey: provess.env.ETHERSCAN,
   },
   networks: {
     sepolia: {
